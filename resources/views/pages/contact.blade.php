@@ -6,8 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to my first  project</h1>
-    <a href="{{url('contact-us')}}">Contact Us</a>
-    <a href="{{url('about-us')}}">About Us</a>
+    <h1>Hello contact us</h1>
+
+
+    <a href="{{url('/')}}">GO to home</a>
 </body>
 </html>
