@@ -2,9 +2,6 @@
 
 
 @section('on_sale')
-
-<a href="{{url('/create-category')}}" class="btn btn-primary">Create Category</a>
-
 <table class="table">
   <thead>
     <tr>

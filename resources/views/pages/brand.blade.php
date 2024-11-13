@@ -3,9 +3,7 @@
 
 @section('on_sale')
 
-<a href="{{url('/create-category')}}" class="btn btn-primary">Create Category</a>
-
-<table class="table">
+<table class="table table-dark">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -35,5 +33,6 @@
     </tr>
   </tbody>
 </table>
+
 
 @endsection
