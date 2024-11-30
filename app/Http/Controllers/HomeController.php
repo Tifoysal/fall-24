@@ -9,13 +9,13 @@ class HomeController extends Controller
 
     public function home(){
 
-        return view('pages.home');
+        return view('backend.pages.home');
     }
 
     public function aboutUs()
     {
 
-        return view('pages.about');
+        return view('backend.pages.about');
         
     }
 

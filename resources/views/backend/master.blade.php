@@ -117,7 +117,7 @@
     
 
 
-@include('fixed.header')
+@include('backend.fixed.header')
 
 
 
@@ -127,7 +127,7 @@
     
 
 
-      @include('fixed.sidebar')
+      @include('backend.fixed.sidebar')
 
 
 

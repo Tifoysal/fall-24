@@ -9,6 +9,6 @@ class BrandController extends Controller
     public function brand()
     {
         
-        return view('pages.brand');
+        return view('backend.pages.brand');
     }
 }

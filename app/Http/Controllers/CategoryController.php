@@ -11,14 +11,16 @@ class CategoryController extends Controller
    public function categories()
    {
     
-    return view('pages.categories');
+    $allCategory=Category::paginate(5);
+    
+    return view('backend.pages.categories',compact('allCategory'));
     
    }
 
    public function createCategory()
    {
    
-      return view('pages.category.create');
+      return view('backend.pages.category.create');
    }
 
    public function categoryStore(Request $request)
