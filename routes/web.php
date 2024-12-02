@@ -3,26 +3,48 @@
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/admin/login',[UserController::class,'login'])->name('login');
-
-Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
-
-            Route::get('/',[HomeController::class,'home']);
-
-            Route::get('/categories',[CategoryController::class,'categories']);
+//frontend routes
+Route::get('/',[FrontendHomeController::class,'home']);
+Route::get('/all-products',[FrontendProductController::class,'list'])->name('all.products');
 
 
-            Route::get('/products',[ProductController::class,'products']);
+
+
+
+
+
+
+//admin panel routes
+Route::group(['prefix'=>'admin'],function(){
+       
+        Route::get('/login',[UserController::class,'login'])->name('login');
+        Route::post('/do-login',[UserController::class,'doLogin'])->name('admin.dologin');
+
+        Route::group(['middleware'=>'auth'],function(){
+       
+
+            Route::get('/',[HomeController::class,'home'])->name('dashboard');
+
+            Route::get('/categories',[CategoryController::class,'categories'])->name('category.list');
+
+
+            Route::get('/products',[ProductController::class,'products'])->name('product.list');
 
             Route::get('/brand',[BrandController::class,'brand']);
 
             Route::get('/create-category',[CategoryController::class,'createCategory']);
 
             Route::post('/category-store',[CategoryController::class,'categoryStore']);
+
+            Route::get('/signout',[UserController::class,'signout'])->name('admin.signout');
     });
+    });
+

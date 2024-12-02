@@ -15,14 +15,14 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{url('/categories')}}">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{route('category.list')}}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Categories
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{url('/products')}}">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{route('product.list')}}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Products
               </a>
@@ -47,7 +47,7 @@
           <ul class="nav flex-column mb-auto">
             
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="{{route('admin.signout')}}">
                 <svg class="bi"><use xlink:href="#door-closed"/></svg>
                 Sign out
               </a>
