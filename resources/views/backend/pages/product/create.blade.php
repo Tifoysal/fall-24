@@ -5,7 +5,7 @@
 
 <h1>Create new Product</h1>
 
-<form action="{{route('product.store')}}" method="post">
+<form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
   @csrf
   <div class="form-group">
     <label for="product_name">Enter Product Name</label>
