@@ -37,12 +37,14 @@ Route::group(['prefix'=>'admin'],function(){
 
 
             Route::get('/products',[ProductController::class,'products'])->name('product.list');
+            Route::get('/product/create',[ProductController::class,'productCreate'])->name('product.create.form');
+            Route::post('/product/store',[ProductController::class,'store'])->name('product.store');
 
             Route::get('/brand',[BrandController::class,'brand']);
 
-            Route::get('/create-category',[CategoryController::class,'createCategory']);
+            Route::get('/create-category',[CategoryController::class,'createCategory'])->name('category.create');
 
-            Route::post('/category-store',[CategoryController::class,'categoryStore']);
+            Route::post('/category-store',[CategoryController::class,'categoryStore'])->name('category.store');
 
             Route::get('/signout',[UserController::class,'signout'])->name('admin.signout');
     });

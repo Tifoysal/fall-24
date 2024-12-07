@@ -2,6 +2,9 @@
 
 
 @section('on_sale')
+
+<a href="{{route('product.create.form')}}" class="btn btn-success">Create Product</a>
+
 <table class="table">
   <thead>
     <tr>

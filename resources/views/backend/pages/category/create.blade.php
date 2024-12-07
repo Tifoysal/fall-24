@@ -5,7 +5,7 @@
 
 <h1>Create new category</h1>
 
-<form action="{{url('/category-store')}}" method="post">
+<form action="{{route('category.store')}}" method="post">
   @csrf
   <div class="form-group">
     <label for="category_name">Enter Category Name</label>
