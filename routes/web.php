@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 
 //frontend routes
 Route::get('/',[FrontendHomeController::class,'home']);
+
+Route::get('/product/view/{id}',[FrontendProductController::class,'view'])->name('product.view');
 Route::get('/all-products',[FrontendProductController::class,'list'])->name('all.products');
 
 

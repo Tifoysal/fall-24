@@ -10,7 +10,7 @@
 
 <div class="container mydiv">
     <div class="row">
-        @foreach($konika as $mama)
+        @foreach($products as $mama)
         <div class="col-md-4">
             <!-- bbb_deals -->
             <div class="bbb_deals">
@@ -26,11 +26,11 @@
                             </div>
                             <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
                                 <div class="bbb_deals_item_name">{{$mama->name}}</div>
-                                <div class="bbb_deals_item_price ml-auto">₹25,550</div>
+                                <div class="bbb_deals_item_price ml-auto">{{$mama->price}} BDT</div>
                             </div>
                             <div class="available">
                                 <div class="available_line d-flex flex-row justify-content-start">
-                                    <div class="available_title">Available: <span>6</span></div>
+                                    <div class="available_title">Available: <span>{{$mama->quantity}}</span></div>
                                     <div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                 </div>
                                 <div class="available_bar"><span style="width:17%"></span></div>
