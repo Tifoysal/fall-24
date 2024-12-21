@@ -27,32 +27,44 @@
   <link href="{{url('/frontend/css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{url('/frontend/css/responsive.css')}}" rel="stylesheet" />
+
+  @notifyCss
+
+  <style type="text/css">
+    .notifyjs-wrapper {
+      z-index: 111111;
+      position: absolute;
+      display: inline-block;
+      height: 0;
+      width: 0;
+    }
+  </style>
 </head>
 
 <body>
   <div class="hero_area">
-   
-
-  @include('frontend.fixed.header')
 
 
+    @include('frontend.fixed.header')
+
+    @include('notify::components.notify')
 
     <!-- slider section -->
 
     @yield('content')
-    
-  
-
-  @include('frontend.fixed.footer')
 
 
 
-  <script src="{{url('/frontend/js/jquery-3.4.1.min.js')}}"></script>
-  <script src="{{url('/frontend/js/bootstrap.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <script src="{{url('/frontend/js/custom.js')}}"></script>
+    @include('frontend.fixed.footer')
 
+
+
+    <script src="{{url('/frontend/js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url('/frontend/js/bootstrap.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <script src="{{url('/frontend/js/custom.js')}}"></script>
+    @notifyJs
 </body>
 
 </html>

@@ -117,7 +117,7 @@
           <div class="box">
             <a href="{{route('product.view',$data->id)}}">
               <div class="img-box">
-                <img src="images/p1.png" alt="">
+                <img src="{{url('/backend/uploads/'.$data->image)}}" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -126,7 +126,7 @@
                 <h6>
                   Price
                   <span>
-                    $200
+                    {{$data->price}}
                   </span>
                 </h6>
               </div>

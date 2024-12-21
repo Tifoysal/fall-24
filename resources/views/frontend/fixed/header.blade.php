@@ -35,10 +35,10 @@
             </li>
           </ul>
           <div class="user_option">
-            <a href="">
+            <a href="" data-toggle="modal" data-target="#login_modal">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
-                Login
+                Login  
               </span>
             </a>
             <a href="">
@@ -54,3 +54,40 @@
       </nav>
     </header>
     <!-- end header section -->
+
+
+
+
+
+<!-- Modal -->
+<div style="z-index: 99999;" class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Customer Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+
+        <form action="{{route('customer.login')}}">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <span>Haven't account ? <a href="{{route('customer.registration')}}">Please register here</a></span>
+      </form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>

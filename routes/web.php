@@ -3,8 +3,9 @@
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\Frontend\ProductController as FrontendProductController;
+use App\Http\Controllers\Frontend\ProductController as FProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -12,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 
 
 //frontend routes
-Route::get('/',[FrontendHomeController::class,'home']);
+Route::get('/',[FrontendHomeController::class,'home'])->name('home');
 
-Route::get('/product/view/{id}',[FrontendProductController::class,'view'])->name('product.view');
-Route::get('/all-products',[FrontendProductController::class,'list'])->name('all.products');
+Route::get('/product/view/{id}',[FProductController::class,'view'])->name('product.view');
+Route::get('/all-products',[FProductController::class,'list'])->name('all.products');
 
+Route::post('/customer-login',[CustomerController::class,'login'])->name('customer.login');
 
+Route::get('/show-registration',[CustomerController::class,'registrationForm'])->name('customer.registration');
+
+Route::post('/customer-registration',[CustomerController::class,'registration'])->name('customer.registration.store');
 
 
 
