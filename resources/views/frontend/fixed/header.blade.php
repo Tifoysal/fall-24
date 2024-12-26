@@ -35,12 +35,27 @@
             </li>
           </ul>
           <div class="user_option">
+
+            @guest('customerGuard')
             <a href="" data-toggle="modal" data-target="#login_modal">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
                 Login  
               </span>
             </a>
+            @endguest
+
+            @auth('customerGuard')
+
+            <a href="">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>
+                {{auth('customerGuard')->user()->name}} | Logout  
+              </span>
+            </a>
+
+            @endauth
+
             <a href="">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
             </a>
@@ -72,14 +87,16 @@
       <div class="modal-body">
         
 
-        <form action="{{route('customer.login')}}">
+        <form action="{{route('customer.login')}}" method="post">
+          @csrf
+
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <input name="email" required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input name="password" required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>

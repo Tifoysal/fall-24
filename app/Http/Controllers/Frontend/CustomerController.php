@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
@@ -19,6 +21,7 @@ class CustomerController extends Controller
     {
        //validation
 
+    //    dd($request->all()); 
        $validate=Validator::make($request->all(),[
             'name'=>'required',
             'email'=>'required|email',
@@ -56,11 +59,33 @@ class CustomerController extends Controller
         'email'=>$request->email,
         'password'=>bcrypt($request->password),
         'address'=>$request->address,
-        'mobile'=>$request->mobile,
+        'mobile'=>$request->mobile_number,
         'image'=>$fileName
        ]);
 
        notify()->success('Customer Registration Success.');
        return redirect()->route('home');
+    }
+
+    public function login(Request $request)
+    {
+
+       
+        //validate
+
+        $form_data=$request->except('_token');
+
+        if(Auth::guard('customerGuard')->attempt($form_data))
+        {
+            //login hoice
+
+            notify()->success('Customer login success.');
+            return redirect()->route('home');
+        }
+
+        notify()->error('Customer login failed.');
+            return redirect()->route('home');
+
+        
     }
 }
