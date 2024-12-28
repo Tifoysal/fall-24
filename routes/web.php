@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\ProductController as FProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -24,6 +25,9 @@ Route::get('/show-registration',[CustomerController::class,'registrationForm'])-
 
 Route::post('/customer-registration',[CustomerController::class,'registration'])->name('customer.registration.store');
 
+
+
+Route::get('/add-to-cart/{p_id}',[OrderController::class,'addToCart'])->name('add.to.cart');
 
 
 

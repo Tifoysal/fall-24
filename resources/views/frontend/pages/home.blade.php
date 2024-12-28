@@ -129,6 +129,7 @@
                     {{$data->price}}
                   </span>
                 </h6>
+                <a class="btn btn-danger" href="{{route('add.to.cart',$data->id)}}">Add to Cart</a>
               </div>
               <div class="new">
                 <span>
