@@ -56,8 +56,9 @@
 
             @endauth
 
-            <a href="">
-              <i class="fa fa-shopping-bag" aria-hidden="true"> ({{count(Session::get('cart'))}})</i>
+           
+            <a href="{{route('cart.view')}}">
+              <i class="fa fa-shopping-bag" aria-hidden="true"> ({{Session::has('cart') ? count(Session::get('cart')) : 0}})</i>
             </a>
             <form class="form-inline ">
               <button class="btn nav_search-btn" type="submit">

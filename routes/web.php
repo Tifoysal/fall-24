@@ -29,6 +29,7 @@ Route::post('/customer-registration',[CustomerController::class,'registration'])
 
 Route::get('/add-to-cart/{p_id}',[OrderController::class,'addToCart'])->name('add.to.cart');
 
+Route::get('/cart/view',[OrderController::class,'viewCart'])->name('cart.view');
 
 
 

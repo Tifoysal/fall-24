@@ -80,4 +80,15 @@ class OrderController extends Controller
 
        
     }
+
+
+    public function viewCart()
+    {
+
+    
+        $cartData=Session::get('cart');
+
+       
+        return view('frontend.pages.cart_view',compact('cartData'));    
+    }
 }
