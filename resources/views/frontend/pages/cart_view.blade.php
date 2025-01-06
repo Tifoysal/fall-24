@@ -63,7 +63,7 @@
 
         <div class="card">
           <div class="card-body">
-            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+            <a href="{{route('checkout')}}" class="btn btn-warning btn-block btn-lg">Proceed to Pay</a>
           </div>
         </div>
 

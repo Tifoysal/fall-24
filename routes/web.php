@@ -31,6 +31,8 @@ Route::get('/add-to-cart/{p_id}',[OrderController::class,'addToCart'])->name('ad
 
 Route::get('/cart/view',[OrderController::class,'viewCart'])->name('cart.view');
 
+Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
+
 
 
 

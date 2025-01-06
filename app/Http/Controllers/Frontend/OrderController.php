@@ -86,9 +86,16 @@ class OrderController extends Controller
     {
 
     
-        $cartData=Session::get('cart');
+        $cartData=Session::get('cart') ?? [];
 
-       
+
         return view('frontend.pages.cart_view',compact('cartData'));    
+    }
+
+
+    public function checkout(){
+
+        $cartData=Session::get('cart') ?? [];
+        return view('frontend.pages.checkout',compact('cartData'));
     }
 }
