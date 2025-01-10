@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetails;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -97,5 +99,50 @@ class OrderController extends Controller
 
         $cartData=Session::get('cart') ?? [];
         return view('frontend.pages.checkout',compact('cartData'));
+    }
+
+    public function placeOrder(Request $request){
+
+
+        // dd($request->all());
+        //validation
+        //order-single data
+
+
+
+        $order=Order::create([
+            'customer_id'=>auth('customerGuard')->user()->id,
+            'receiver_name'=>$request->receiver_name,
+            'receiver_address'=>$request->address,
+            'receiver_email'=>$request->receiver_email,
+            'receiver_mobile_no'=>$request->mobile_no,
+            'payment_type'=>$request->payment,
+            'sub_total'=>$request->subtotal,
+            'total_amount'=>$request->subtotal + 70,
+        ]);
+
+        //Order Details - cart item - multiple
+        $myCart=Session()->get('cart');
+
+        foreach($myCart as $cart)
+        {
+          
+            OrderDetails::create([
+                'order_id'=>$order->id,
+                'product_id'=>$cart['id'],
+                'quanity'=>$cart['quantity'],
+                'unit_price'=>$cart['price'],
+                'subtotal'=>$cart['subtotal'],
+            ]);
+
+        }
+
+
+        session()->forget('cart');
+        notify()->success('Order Place Success.');
+
+        return redirect()->route('home');
+
+
     }
 }

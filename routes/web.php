@@ -33,6 +33,8 @@ Route::get('/cart/view',[OrderController::class,'viewCart'])->name('cart.view');
 
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 
+Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
+
 
 
 
