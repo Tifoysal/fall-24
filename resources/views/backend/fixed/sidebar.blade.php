@@ -29,6 +29,13 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{route('order.list')}}">
+                <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                Orders
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{url('/brand')}}">
                 <svg class="bi"><use xlink:href="#house-fill"/></svg>
                 Brand
